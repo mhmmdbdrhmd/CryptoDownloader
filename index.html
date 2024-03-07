@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-BoldItalic.ttf') format('truetype');
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-Italic.ttf') format('truetype');
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-Light.ttf') format('truetype');
+            font-weight: lighter;
+        }
+
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-LightItalic.ttf') format('truetype');
+            font-weight: lighter;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-Medium.ttf') format('truetype');
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-MediumItalic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Ubuntu';
+            src: url('../src/font/Ubuntu-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            transition: all 1.3s ease-in-out;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Ubuntu';
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('../Coin\ Traiding/src/img/BG_Step 000.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        #logo {
+            height: 80px;
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #download-btn:disabled {
+            background-color:black ;
+            color: white;
+            cursor: not-allowed;
+            border: 3px solid #fff;
+            width: 200px;
+            
+        }
+
+        #download-btn {
+            font-family: 'Ubuntu';
+            font-weight: 800;
+            font-size: 10px;
+            width: 200px;
+            height: auto;
+            border-radius: 60px;
+            background-color: #EDD814;
+            border: 3px solid #fff;
+            color: black;
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            line-height: 65px;
+            cursor: pointer;
+        }
+
+        .user-input {
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .user-inputNewData {
+            top: 45%;
+        }
+
+        .user-inputNewData1 {
+            top: 50%;
+        }
+
+        .user-inputNewData2 {
+            top: 56%;
+        }
+
+        .user-inputNewData3 {
+            top: 62%;
+        }
+
+        .currency-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+        }
+
+        .step-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .current-step {
+            display: block;
+            opacity: 1;
+        }
+
+
+
+        .step-label {
+            display: block;
+            margin-bottom: 10px;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .allReqData{
+    
+        }
+
+        .custom-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            height: 57px;
+            padding: 10px 38px 10px 16px;
+            background: #fff url("select-arrows.svg") no-repeat right 16px center;
+            background-size: 10px;
+            transition: border-color .1s ease-in-out,box-shadow .1s ease-in-out;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .custom-select:hover {
+            border: 1px solid #999;
+        }
+        .custom-select:focus {
+            border: 1px solid #999;
+            box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
+            outline: none;
+        }
+
+        #logo{
+            width: 14%;
+            height: auto;
+            top: 20%;
+        }
+
+        #currency option[value="currency1"] {
+            background-image: url('../Coin Traiding/src/img/coins/btc.png');
+        }
+
+    </style>
+    <title>Your Webpage</title>
+</head>
+
+<body>
+    <!-- Add your HTML structure here as before -->
+<div class="allReqData">
+    <img id="logo" src="../Coin Traiding/src/img/Logo.png" alt="">
+    <div  class="user-input step-container current-step">
+        <div>
+            <select id="currency" name="currency">
+                <!-- Add currency options here -->
+                <option value="currency1">Chose Your Currency</option>
+                <option value="currency1">BTC / USDT</option>
+                <option value="currency2">SHIB / USDT</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+    </div>
+
+    <div class="user-inputNewData user-input step-container">
+        <label for="date-range" class="step-label">Enter Date Range:</label>
+        <div>
+            <input type="date" id="from-date" required>
+            <span>to</span>
+            <input type="date" id="to-date" required>
+        </div>
+    </div>
+
+    
+    <div id="transaction-type" class="user-inputNewData1 user-input step-container">
+        <label for="transaction-type" class="step-label hidden">Select Transaction Type:</label>
+        <div>
+            <select id="transaction-type-select" name="transaction-type">
+                <option value="future">Future</option>
+                <option value="spot">Spot</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="time-frame" class="user-inputNewData2 user-input step-container">
+        <label for="time-frame" class="step-label hidden">Select Time Frame:</label>
+        <div>
+            <select id="time-frame-select" name="time-frame">
+                <!-- Add time frame options here -->
+                <option value="daily">Daily</option>
+                <option value="monthly">Monthly</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+    </div>
+
+    <div id="interval" class="user-inputNewData3 user-input step-container">
+        <label for="interval" class="step-label hidden">Select Interval:</label>
+        <div>
+            <select id="interval-select" name="interval">
+                <!-- Add interval options here -->
+                <option value="12h">12h</option>
+                <option value="15m">15m</option>
+                <option value="1d">1d</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+    </div>
+</div>
+
+    <button id="download-btn" class="" disabled> Chose Your Currency</button>
+
+    <script>
+        
+        var steps = document.querySelectorAll('.step-container');
+        var labels = document.querySelectorAll('.step-label');
+        var downloadBtn = document.getElementById('download-btn');
+        var currentStepIndex = 0
+        steps.forEach(function (step, index) {
+            step.addEventListener('change', function () {
+                if (index < steps.length - 1) {
+                    setTimeout(function () {
+                        var backgroundImage = `url('../Coin\ Traiding/src/img/BG_Step 00${(currentStepIndex = currentStepIndex + 1)}.png')`;
+                        document.body.style.backgroundImage = backgroundImage;
+                        steps[index + 1].classList.add('current-step');
+                        labels[index].classList.add('hidden');
+                        labels[index + 1].classList.remove('hidden');
+                    }, 1000); // Add a delay of 1 second before showing the next step
+                }
+
+                if (index > 0) {
+                    setTimeout(function () {
+                        steps[index].classList.remove('current-step');
+                        
+                    }, 1000); // Add a delay of 1 second before hiding the current step
+                    
+                }
+
+                if (index === steps.length - 1) {
+                    setTimeout(function () {
+                        downloadBtn.disabled = false;
+                        downloadBtn.innerHTML = `Download`;
+                        var backgroundImage = `url('../Coin\ Traiding/src/img/BG_Step 00${(currentStepIndex = currentStepIndex + 1)}.png')`;
+                        document.body.style.backgroundImage = backgroundImage;
+                    }, 1000); // Add a delay of 1 second before enabling the download button
+                }
+            });
+        });
+    
+    
+    </script>
+
+
+</body>
+
+</html>
