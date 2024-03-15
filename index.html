@@ -7,10 +7,9 @@
     <style>
         @font-face {
             font-family: 'Ubuntu';
-            src: url('../src/font/Ubuntu-Bold.ttf') format('truetype');
-            font-weight: bold;
+            src: url('../Coin\ Traiding/src/font/Ubuntu-L.ttf') format('truetype');
         }
-
+/* 
         @font-face {
             font-family: 'Ubuntu';
             src: url('../src/font/Ubuntu-BoldItalic.ttf') format('truetype');
@@ -55,7 +54,7 @@
             src: url('../src/font/Ubuntu-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
-        }
+        } */
 
         * {
             transition: all 1.3s ease-in-out;
@@ -81,24 +80,47 @@
             transform: translateX(-50%);
         }
 
+        #collectedData{
+            font-family: 'Ubuntu';
+            font-size: 12px;
+            height: 80px;
+            position: absolute;
+            bottom: 137px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #d8cc21;
+            padding: 3px 10px 3px 10px;
+            border-radius: 10px;
+            border: 2px solid #fff;
+            height: auto;
+            color: #000;
+        }
+
         #download-btn:disabled {
             background-color:black ;
             color: white;
             cursor: not-allowed;
-            border: 3px solid #fff;
+            border: 2px solid #fff;
             width: 200px;
-            
+            height: 70px;
+            font-size: 11px;
+        }
+        #download-btn:hover{
+            background-color: #03A741;
+            color: White;
+            font-weight: 800;
         }
 
         #download-btn {
             font-family: 'Ubuntu';
             font-weight: 800;
-            font-size: 10px;
-            width: 200px;
-            height: auto;
+            font-size: 11px;
+            width: 380px;
+            height: 70px;
+            font-size: 11px;
             border-radius: 60px;
             background-color: #EDD814;
-            border: 3px solid #fff;
+            border: 2px solid #fff;
             color: black;
             position: absolute;
             bottom: 20%;
@@ -139,18 +161,6 @@
             margin: 0 10px;
         }
 
-        .step-container {
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .current-step {
-            display: block;
-            opacity: 1;
-        }
-
-
 
         .step-label {
             display: block;
@@ -161,6 +171,12 @@
 
         .hidden {
             opacity: 0;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 50%auto;
         }
 
         .allReqData{
@@ -198,113 +214,165 @@
             background-image: url('../Coin Traiding/src/img/coins/btc.png');
         }
 
+        #newSecSlider{
+            display: none;
+        }
+
+
+        #step1{
+            position: absolute;
+            top: 46%;
+        }
+
+        #step2{
+            position: absolute;
+            top: 53%;
+        }
+
+        #step3{
+            position: absolute;
+            top: 60%;
+        }
+
+        #step4{
+            position: absolute;
+            top: 66%;
+        }
+
+        button.next{
+            position: fixed;
+            top: 0px;
+            right: 40%;
+            text-align: center;
+            font-size: 7px;
+            height: 30px;
+            width: 30px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            background-color: #000;
+            color: #ddd;
+        }
+
+        button.back{
+            position: fixed;
+            top: 0px;
+            left: 40%;
+            text-align: center;
+            font-size: 7px;
+            height: 30px;
+            width: 30px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            background-color: #000;
+            color: #ddd;
+            transition: all 0.5s ;
+        }
+
+        button.next:hover , button.back:hover {
+            background-color: #EDD814;
+            color: #000;
+            transition: all 0.5s ;
+        }
+
+
+        select,input{
+            border-radius: 20px;
+            padding: 5px;
+        }
+
+
+
     </style>
     <title>Your Webpage</title>
 </head>
 
 <body>
-    <!-- Add your HTML structure here as before -->
+
 <div class="allReqData">
+
+    <!-- IMG LOGO --> 
     <img id="logo" src="../Coin Traiding/src/img/Logo.png" alt="">
+
+    <!-- IMG LOGO --> 
     <div  class="user-input step-container current-step">
         <div>
             <select id="currency" name="currency">
                 <!-- Add currency options here -->
-                <option value="currency1">Chose Your Currency</option>
-                <option value="currency1">BTC / USDT</option>
-                <option value="currency2">SHIB / USDT</option>
+                <option value="none">Chose Your Currency</option>
+                <option value="BTC">BTC / USDT</option>
+                <option value="SHIB">SHIB / USDT</option>
                 <!-- Add more options as needed -->
             </select>
         </div>
     </div>
 
-    <div class="user-inputNewData user-input step-container">
-        <label for="date-range" class="step-label">Enter Date Range:</label>
-        <div>
-            <input type="date" id="from-date" required>
-            <span>to</span>
-            <input type="date" id="to-date" required>
-        </div>
-    </div>
 
-    
-    <div id="transaction-type" class="user-inputNewData1 user-input step-container">
-        <label for="transaction-type" class="step-label hidden">Select Transaction Type:</label>
-        <div>
-            <select id="transaction-type-select" name="transaction-type">
-                <option value="future">Future</option>
-                <option value="spot">Spot</option>
-            </select>
-        </div>
-    </div>
-
-    <div id="time-frame" class="user-inputNewData2 user-input step-container">
-        <label for="time-frame" class="step-label hidden">Select Time Frame:</label>
-        <div>
-            <select id="time-frame-select" name="time-frame">
-                <!-- Add time frame options here -->
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
-    </div>
-
-    <div id="interval" class="user-inputNewData3 user-input step-container">
-        <label for="interval" class="step-label hidden">Select Interval:</label>
-        <div>
-            <select id="interval-select" name="interval">
-                <!-- Add interval options here -->
-                <option value="12h">12h</option>
-                <option value="15m">15m</option>
-                <option value="1d">1d</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
-    </div>
 </div>
 
-    <button id="download-btn" class="" disabled> Chose Your Currency</button>
+<button id="download-btn" class="" disabled onclick="submitData()"> Chose Your Currency</button>
 
-    <script>
-        
-        var steps = document.querySelectorAll('.step-container');
-        var labels = document.querySelectorAll('.step-label');
-        var downloadBtn = document.getElementById('download-btn');
-        var currentStepIndex = 0
-        steps.forEach(function (step, index) {
-            step.addEventListener('change', function () {
-                if (index < steps.length - 1) {
-                    setTimeout(function () {
-                        var backgroundImage = `url('../Coin\ Traiding/src/img/BG_Step 00${(currentStepIndex = currentStepIndex + 1)}.png')`;
-                        document.body.style.backgroundImage = backgroundImage;
-                        steps[index + 1].classList.add('current-step');
-                        labels[index].classList.add('hidden');
-                        labels[index + 1].classList.remove('hidden');
-                    }, 1000); // Add a delay of 1 second before showing the next step
-                }
+<div id="collectedData"> Collected Data</div>
 
-                if (index > 0) {
-                    setTimeout(function () {
-                        steps[index].classList.remove('current-step');
-                        
-                    }, 1000); // Add a delay of 1 second before hiding the current step
-                    
-                }
+<div id="newSecSlider" class="slider">
 
-                if (index === steps.length - 1) {
-                    setTimeout(function () {
-                        downloadBtn.disabled = false;
-                        downloadBtn.innerHTML = `Download`;
-                        var backgroundImage = `url('../Coin\ Traiding/src/img/BG_Step 00${(currentStepIndex = currentStepIndex + 1)}.png')`;
-                        document.body.style.backgroundImage = backgroundImage;
-                    }, 1000); // Add a delay of 1 second before enabling the download button
-                }
-            });
-        });
-    
-    
-    </script>
+    <div class="user-input slide" id="step1">
+        <div>
+            <div>
+                <input type="date" id="from-date" required>
+                <span>to</span>
+                <input type="date" id="to-date" required>
+            </div>
+        </div>
+        <button class="next"   onclick="nextSlide('step1', 'step2')">Next</button>
+    </div>
+
+    <div class="user-input slide" id="step2">
+        <div id="transaction-type" >
+            <div>
+                <select id="transaction-type-select" name="transaction-type">
+                    <option value="none">Transaction</option>
+                    <option value="Future">Future</option>
+                    <option value="Spot">Spot</option>
+                </select>
+            </div>
+        </div>
+        <button class="next" onclick="nextSlide('step2', 'step3')">Next</button>
+        <button class="back" onclick="prevSlide('step2', 'step1')">Back</button>
+      </div>
+
+    <div class="user-input slide" id="step3">
+      <div id="time-frame" class="user-inputNewData2">
+        <div>
+            <select id="time-frame-select" name="time-frame">
+                <option value="none">Time Frame</option>
+                <option value="Daily">Daily</option> test
+                <option value="Monthly">Monthly</option>
+            </select>
+        </div>
+    </div>
+      <button class="next" onclick="nextSlide('step3', 'step4')">Next</button>
+      <button class="back" onclick="prevSlide('step3', 'step2')">Back</button>
+    </div>
+
+    <div class="user-input slide" id="step4">
+        <div id="interval" class="user-inputNewData3">
+            <div>
+                <select id="interval-select" name="interval">
+                    <option value="none">Interval</option>
+                    <option value="12h">12h</option>
+                    <option value="15m">15m</option>
+                    <option value="1d">1d</option>
+                </select>
+            </div>
+        </div>
+      <button class="back" onclick="prevSlide('step4', 'step3')">Back</button>
+    </div>
+
+
+  </div>
+
+
+<script src="../Coin Traiding/static/js/script.js"></script>
 
 
 </body>
