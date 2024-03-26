@@ -56,8 +56,8 @@ def filter_urls_by_date(urls, start_date, end_date):
 
 
 def downloader(data):
-    cipher_suite = Fernet("NVNQ4v8HLRscMW22dkduC5pEvOSe-urm_DFN8-xsF6A=")
-    base_url=cipher_suite.decrypt("gAAAAABmAhCNBojQN-siARrFo9mUgidkcxSBbG9HuqHbfqYYC55vhzAbogzFWsy9OPO8e2fPGaigt3qRVRXIKlBKpI3lRzfvkSPRKk7b2Wq4a0dUMpT8evQ=").decode()
+    cipher_suite = Fernet(b"NVNQ4v8HLRscMW22dkduC5pEvOSe-urm_DFN8-xsF6A=")
+    base_url=cipher_suite.decrypt(b"gAAAAABmAhCNBojQN-siARrFo9mUgidkcxSBbG9HuqHbfqYYC55vhzAbogzFWsy9OPO8e2fPGaigt3qRVRXIKlBKpI3lRzfvkSPRKk7b2Wq4a0dUMpT8evQ=").decode()
     
     print("Started Collecting file informations.")
     symbol = data['currency']  # Example of expected data format: {"symbol": "BTCUSDT"}
