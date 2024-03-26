@@ -34,9 +34,10 @@
 <h2>📦 Installation & Setup</h2>
 
 <ol>
-<li>Clone the repository:<pre><code>git clone git@github.com:mhmmdbdrhmd/CryptoDownloader.git</code></pre></li>
+<li>Clone the repository using SSH:<pre><code>git clone git@github.com:mhmmdbdrhmd/CryptoDownloader.git</code></pre></li>
+<li>Navigate to the script directory. <pre><code>cd CryptoDownloader</code></pre></li>
 <li>Install required packages:<pre><code>pip install -r requirements.txt</code></pre></li>
-<li>Run the Flask app:<pre><code>flask run</code></pre></li>
+<li>Run the Flask app:<pre><code>python3 app.py</code></pre></li>
 </ol>
 
 <h2>🛠 How It Works</h2>
