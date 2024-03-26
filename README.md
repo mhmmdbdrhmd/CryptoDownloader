@@ -64,7 +64,7 @@
 
 <h2>🤝 Collaborates</h2>
 
-<p>This project benefits from the collaboration with Amir Hossein Musavi, whose contributions have been invaluable in enhancing the features and reliability of the Weather Dashboard.<br>
+<p>This project benefits from the collaboration with Amir Hossein Musavi, whose contributions have been invaluable in enhancing the features and reliability of the Crytpo Downloader.<br>
 
 ##
   <br>     
