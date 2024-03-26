@@ -15,7 +15,7 @@ def handle_data_submission():
     print("Currency:", data['currency'])
     print("From Date:", data['fromDate'])
     print("To Date:", data['toDate'])
-    print("Interval:",data['interVal'])
+    print("Interval:",data['interval'])
     print()
     downloader(data)
     # Add more print statements as necessary for other data fields
