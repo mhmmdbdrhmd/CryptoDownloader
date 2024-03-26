@@ -111,13 +111,13 @@ def downloader(data):
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
 
-    print("Downloading %d Files:", len(urls))
+    print("Downloading " + str(len(urls)) +" Files:")
     # Setup progress bar
     progress = tqdm(total=len(urls), unit='file', desc='Downloading files', unit_scale=False)
 
     # Use ThreadPoolExecutor to download files in parallel and update progress bar
     downloaded_files = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=200) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(100,len(urls))) as executor:
         futures = [executor.submit(download_file, url, progress) for url in urls]
         for future in concurrent.futures.as_completed(futures):
             filepath = future.result()
@@ -150,7 +150,7 @@ def downloader(data):
             return f"Verification failed for file: {filepath}"
 
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(100,len(urls))) as executor:
         verification_results = list(executor.map(verify_file_integrity, downloaded_files))
 
     failed_verifications = [result for result in verification_results if "Verification failed for file:" in result]
