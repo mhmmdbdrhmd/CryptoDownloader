@@ -60,7 +60,11 @@
 <p>This project is licensed under the MIT License - see the `LICENSE` file for details.</p>
 
 <h2>💖 Acknowledgments</h2>
-<p>- Credit to data providers including Binance and contributors.<br>
+<p>Credit to data providers including Binance and contributors.<br>
+
+<h2>🤝 Collaborates</h2>
+
+<p>This project benefits from the collaboration with Amir Hossein Musavi, whose contributions have been invaluable in enhancing the features and reliability of the Weather Dashboard.<br>
 
 ##
   <br>     
