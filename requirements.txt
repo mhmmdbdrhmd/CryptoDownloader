@@ -1,0 +1,6 @@
+selenium
+tqdm
+requests
+cryptography
+webdriver_manager
+Flask
